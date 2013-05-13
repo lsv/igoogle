@@ -1,0 +1,5 @@
+<div class="span{{ width }}">
+{% for item in col %}
+    {% include '_partials/item.html.twig' with {'feed': item, 'tabid' : tabid, 'colid': colid, 'itemid': loop.index0 } %}
+{% endfor %}
+</div>

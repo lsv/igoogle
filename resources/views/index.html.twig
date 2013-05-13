@@ -1,0 +1,44 @@
+{% extends "app.html.twig" %}
+
+{% block content %}
+    {{ parent() }}
+    <div class="container-fluid">
+        <div class="row-fluid" id="igoogle">
+            <h1>new-iGoogle</h1>
+            <div id="searchbox">
+                <form action="https://www.google.com/search" method="get">
+                    <input type="hidden" name="btnG" value="1">
+                    <input type="hidden" name="pws" value="0">
+                    <div class="input-append">
+                        <input type="text" name="q">
+                        <button id="s" type="submit" class="btn">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                {% for name, tab in feeder.col %}
+                    <li {% if loop.first %}class="active"{% endif %}><a href="#tab-{{ loop.index0 }}">{{ name }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                {% for tab in feeder.col %}
+                    <div class="tab-pane {% if loop.first %}active{% endif %}" id="tab-{{ loop.index0 }}">
+                        {% set tabid = loop.index0 %}
+                        {% for col in tab %}
+                            <!-- @todo calculate the tabpane width -->
+                            {% include '_partials/tabpane.html.twig' with {'width': 3, 'tabid': tabid, 'colid': loop.index0, 'col': col} %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>Feeder.Config.url = "{{ app.request.getRequestURI() }}feed";</script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "_base.html.twig" %}
+{% block title %}iGoogle{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/styles.css">
+{% endblock %}
+
+{% block meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block header_js %}
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block content %}
+    <div id="loadingmodal" class="modal hide loadingmodal" tabindex="-1" role="dialog">
+        <div class="modal-body">
+            <p><img src="{{ app.request.basepath }}/assets/img/ajax-loader.gif" alt=""/></p>
+            <p>{{ "Loading data..." }}</p>
+        </div>
+    </div>
+
+    {% for type, flashMessages in app.session.flashbag.all() %}
+        {% for flashMessage in flashMessages %}
+            {% include "_partials/flashmessage.html.twig" with {'type': 'success', 'msg': flashMessage} %}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}
+
+{% block js %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script src="{{ app.request.basepath }}/assets/js/scripts.js"></script>
+{% endblock %}
