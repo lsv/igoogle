@@ -26,6 +26,14 @@ $app->post('/feed', function(\Symfony\Component\HttpFoundation\Request $request)
 		'getPubDate' => 'pubdate'
 	);
 
+	if ($channel->getLink()) {
+		$data['url'] = $channel->getLink();
+	}
+
+	if ($channel->getTitle()) {
+		$data['title'] = $channel->getTitle();
+	}
+
 	$i = 0;
 	foreach($channel as $item) {
 		if ($max != '') {
@@ -52,7 +60,7 @@ $app->post('/feed', function(\Symfony\Component\HttpFoundation\Request $request)
 			}
 		}
 
-		$data[] = $d;
+		$data['items'][] = $d;
 	}
 
 	return new Response(json_encode($data));

@@ -10,6 +10,7 @@ class Script
         chmod('resources/log', 0777);
         chmod('web/assets', 0777);
         chmod('console', 0500);
+		exec('cp -R resources/assets/web web/assets');
         exec('php console assetic:dump');
     }
 }

@@ -1,12 +1,15 @@
 <?php
+
+use Symfony\Component\Yaml\Parser;
+
 ini_set('display_errors', 1);
 error_reporting(-1);
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-require __DIR__.'/../resources/config/feeds.php';
+$yaml = new Parser();
 $app = new Silex\Application(array(
-	'feeds' => $feeds
+	'feeds' => $yaml->parse(file_get_contents(__DIR__ . '/../resources/config/feeds.yml'))
 ));
 
 /*

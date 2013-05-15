@@ -53,20 +53,33 @@ var Feeder = {
                 age: $elm.data('age')
             },
             function(data) {
-                var $html = $('<ul class="unstyled"></ul>');
-                $.each(data, function(num, el) {
-                    $html.append(
-                        $(
-                            '<li>' +
-                            '<a class="btn viewitem"><i class="icon-plus-sign"></i>' +
-                            '<a class="title" target="_blank" href="' + el.link + '">' + el.title + '</a>' +
-                            '<div>' + el.description + '</div>' +
-                            '</li>'
-                        )
-                    );
-                });
+                var $a = $elm.parent().parent().find('.header').find('span').find('a');
+                /*
+                if (data.title) {
+                    $a.html(data.title);
+                }
+                */
 
-                $elm.parent().html($html);
+                if (data.url) {
+                    $a.attr('href', data.url);
+                }
+
+                if (data.items) {
+                    var $html = $('<ul class="unstyled"></ul>');
+                    $.each(data.items, function(num, el) {
+                        $html.append(
+                            $(
+                                '<li>' +
+                                '<a class="btn viewitem"><i class="icon-plus-sign"></i>' +
+                                '<a class="title" target="_blank" href="' + el.link + '">' + el.title + '</a>' +
+                                '<div>' + el.description + '</div>' +
+                                '</li>'
+                            )
+                        );
+                    });
+
+                    $elm.parent().html($html);
+                }
 
             },
             'json'
