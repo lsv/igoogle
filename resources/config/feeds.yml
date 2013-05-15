@@ -1,0 +1,58 @@
+maxage: "-2d"
+maxitems: 5
+col:
+  Home: 
+    - 
+      - 
+        feed: "http://rss.tv2.dk/rss/show/site/nyhederne.tv2.dk/feed/TV+2+Nyhederne/index.xml"
+        name: "TV2 nyheder"
+      - 
+        feed: "http://sporten.tv2.dk/rss.xml"
+        name: "TV2 sporten"
+      - 
+        feed: "http://alistapart.com/site/rss"
+        maxage: ""
+        maxitems: 2
+        name: "A list apart"
+      - 
+        feed: "http://www.wikihow.com/feed.rss"
+        maxitems: 1
+        name: Wikihow
+    - 
+      - 
+        feed: "http://newz.dk/rss/news/nopicture"
+        name: newz.dk
+      - 
+        feed: "http://www.pcworld.dk/rss/all"
+        name: PCWorld
+      - 
+        feed: "http://www.engadget.com/rss-hd.xml"
+        maxitems: 3
+        name: Engadget
+    - 
+      - 
+        feed: "http://railgun.newz.dk/rss/news/nopicture"
+        name: Railgun
+      - 
+        feed: "http://www.comon.dk/rss/all"
+        name: Comon
+      - 
+        feed: "http://filmz.dk/rss/"
+        name: Filmz
+    - 
+      - 
+        feed: "http://macnation.newz.dk/rss/news/nopicture"
+        name: Macnation
+      - 
+        feed: "http://www.rssweather.com/icao/EKCH/rss.php"
+        maxitems: ""
+        name: Vejret
+  Work: 
+    - 
+      - 
+        feed: "http://macnation.newz.dk/rss/news/nopicture"
+        name: Macnation
+      - 
+        feed: "http://www.rssweather.com/icao/EKCH/rss.php"
+        maxitems: ""
+        name: Vejret
