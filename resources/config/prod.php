@@ -7,7 +7,7 @@ $app['translator.messages'] = array(
     'da' => __DIR__.'/../resources/locales/da.yml',
 );
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
