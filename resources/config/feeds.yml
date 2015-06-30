@@ -10,11 +10,6 @@ col:
         feed: "http://sporten.tv2.dk/rss.xml"
         name: "TV2 sporten"
       - 
-        feed: "http://alistapart.com/site/rss"
-        maxage: ""
-        maxitems: 2
-        name: "A list apart"
-      - 
         feed: "http://www.wikihow.com/feed.rss"
         maxitems: 1
         name: Wikihow
@@ -33,9 +28,6 @@ col:
       - 
         feed: "http://railgun.newz.dk/rss/news/nopicture"
         name: Railgun
-      - 
-        feed: "http://www.comon.dk/rss/all"
-        name: Comon
       - 
         feed: "http://filmz.dk/rss/"
         name: Filmz
